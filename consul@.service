@@ -22,7 +22,6 @@ ExecStartPre=/usr/bin/docker pull ${DOCKER_REPO}:${VERSION}
 ExecStart=/bin/bash -c 'docker run --name ${CONTAINER} \
   --memory 16G \
   --volume /var/run/docker.sock:/var/run/docker.sock \
-  --volume /opt/bin/docker.static:/bin/docker \
   --net=host \
   --env "CONSUL_ALLOW_PRIVILEGED_PORTS=1" \
   ${DOCKER_REPO}:${VERSION} ${COREOS_PRIVATE_IPV4} %m'
