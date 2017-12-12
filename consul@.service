@@ -12,7 +12,7 @@ Restart=on-failure
 RestartSec=1
 
 Environment=DOCKER_REPO=quay.io/democracyworks/consul-coreos
-Environment=VERSION=0.8.4
+Environment=VERSION=1.0.0
 Environment=CONTAINER=consul
 
 ExecStartPre=-/usr/bin/docker kill ${CONTAINER}
@@ -20,6 +20,7 @@ ExecStartPre=-/usr/bin/docker rm ${CONTAINER}
 ExecStartPre=/usr/bin/docker pull ${DOCKER_REPO}:${VERSION}
 
 ExecStart=/bin/bash -c 'docker run --name ${CONTAINER} \
+  --memory 16G \
   --volume /var/run/docker.sock:/var/run/docker.sock \
   --volume /opt/bin/docker.static:/bin/docker \
   --net=host \
