@@ -1,12 +1,12 @@
-FROM consul:1.0.0
+FROM consul:1.0.1
 MAINTAINER Democracy Works, Inc. <dev@democracy.works>
 
 RUN apk add --no-cache --update bash
 
 ENV GOMAXPROCS 10
-ENV DOCKER_VERSION 1.12.6
+ENV DOCKER_VERSION 17.09.0-ce
 
-RUN curl -L --retry 5 --retry-delay 1 -o /tmp/docker.tgz https://get.docker.com/builds/Linux/x86_64/docker-$DOCKER_VERSION.tgz && \
+RUN curl -L --retry 5 --retry-delay 1 -o /tmp/docker.tgz https://download.docker.com/linux/static/stable/x86_64/docker-$DOCKER_VERSION.tgz && \
     tar -xz -C /tmp -f /tmp/docker.tgz && \
     mv /tmp/docker/docker /bin/docker && \
     chmod +x /bin/docker && \

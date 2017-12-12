@@ -12,7 +12,7 @@ Restart=on-failure
 RestartSec=1
 
 Environment=DOCKER_REPO=quay.io/democracyworks/consul-coreos
-Environment=VERSION=1.0.0
+Environment=VERSION=1.0.1-17.09.0-ce
 Environment=CONTAINER=consul
 
 ExecStartPre=-/usr/bin/docker kill ${CONTAINER}
